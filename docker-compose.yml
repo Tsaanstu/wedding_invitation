@@ -2,25 +2,23 @@ version: '3.8'
 
 services:
   backend:
+    container_name: backend-1
     build:
       context: ./backend
     ports:
       - "5050:5050"
     environment:
-      - NODE_ENV=development
-    volumes:
-      - ./backend:/app:cached
-    restart: always
+      - NODE_ENV=production
 
   frontend:
+    container_name: frontend-1
     build:
       context: ./frontend
+      dockerfile: Dockerfile
     ports:
       - '80:80'
     environment:
-      - CHOKIDAR_USEPOLLING=true
-    volumes:
-      - ./frontend:/app
-      - ./frontend/node_modules:/app/node_modules
-    stdin_open: true
-    tty: true
+      - NODE_ENV=production
+    # Аналогично - если нужно, можно отключить volume
+    # volumes:
+    #   - .:/app
