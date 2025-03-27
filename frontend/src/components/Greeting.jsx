@@ -6,7 +6,7 @@ function Greeting() {
 
     const [guestData, setGuestData] = useState(null);
     const [notFound, setNotFound] = useState(false);
-    const [loading, setLoading] = useState(true); // 🆕
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
         if (guestSlug) {
@@ -19,16 +19,16 @@ function Greeting() {
                 })
                 .then(data => {
                     setGuestData(data);
-                    setLoading(false); // 🆕
+                    setLoading(false);
                 })
                 .catch(() => {
                     setNotFound(true);
-                    setLoading(false); // 🆕
+                    setLoading(false);
                 });
         }
     }, [guestSlug]);
 
-    if (loading) return null; // 🆕 Ничего не рендерим во время загрузки
+    if (loading) return null;
 
     if (notFound || !guestData) {
         return (
@@ -47,6 +47,7 @@ function Greeting() {
             ? `Дорогой ${name}!`
             : `Дорогая ${name}!`;
 
+    const pronoun = partner_name ? 'вас' : 'тебя';
 
     if (!guestSlug) {
         return (
@@ -61,9 +62,9 @@ function Greeting() {
         <section className="section greeting" data-aos="fade-up">
             <h2>{greeting}</h2>
             <p>
-                Мы с радостью приглашаем вас на наше свадебное торжество.
+                Мы с радостью приглашаем {pronoun} на наше свадебное торжество.
                 Этот день мы хотим разделить с самыми близкими и важными для нас людьми.
-                Будем счастливы видеть вас среди наших гостей!
+                Будем счастливы видеть {pronoun} среди наших гостей!
             </p>
         </section>
     );
