@@ -50,18 +50,29 @@ body {
 
 .timeline-item {
     display: flex;
-    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
     padding: 12px 0;
     border-bottom: 1px solid #eee;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.timeline-icon img {
+    width: 28px;
+    height: 28px;
 }
 
 .timeline-time {
     font-weight: bold;
     color: #444;
+    width: 60px;
+    text-align: right;
 }
 
 .timeline-title {
     color: #666;
+    flex-grow: 1;
 }
 
 .location h2 {
