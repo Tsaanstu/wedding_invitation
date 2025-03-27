@@ -12,18 +12,18 @@ app.use(express.json()); // Парсим JSON в запросах
 
 // 🔹 POST /api/rsvp — запись анкеты
 app.post('/api/rsvp', (req, res) => {
-    const {guest, attendance, alcohol, allergy} = req.body;
+    const {guest_id, attendance, alcohol, allergy} = req.body;
 
-    if (!guest || !attendance) {
+    if (!guest_id || !attendance) {
         return res.status(400).json({error: 'Некорректные данные'});
     }
 
     const alcoholList = Array.isArray(alcohol) ? alcohol.join(', ') : '';
 
     db.run(
-        `INSERT INTO rsvp (guest, attendance, alcohol, allergy)
+        `INSERT INTO rsvp (guest_id, attendance, alcohol, allergy)
          VALUES (?, ?, ?, ?)`,
-        [guest, attendance, alcoholList, allergy],
+        [guest_id, attendance, alcoholList, allergy],
         function (err) {
             if (err) {
                 console.error('❌ Ошибка при записи в БД:', err.message);
