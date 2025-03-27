@@ -19,6 +19,3 @@ services:
       - '80:80'
     environment:
       - NODE_ENV=production
-    # Аналогично - если нужно, можно отключить volume
-    # volumes:
-    #   - .:/app
