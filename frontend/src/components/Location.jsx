@@ -9,7 +9,7 @@ function Location() {
             <div className="map-container">
                 <iframe
                     title="Wedding Location"
-                    src="https://yandex.ru/map-widget/v1/?um=constructor%3A96f3031e00374f073647e42a007eb474adbe316b391bfb7f5a4450281ff699b5&amp;source=constructor"
+                    src="https://yandex.ru/map-widget/v1/?ll=37.749022%2C55.960715&mode=search&oid=117554353529&ol=biz&z=17"
                     width="100%"
                     height="400"
                     frameBorder="0"

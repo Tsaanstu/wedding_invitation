@@ -1,0 +1,27 @@
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg"
+	 x="0px" y="0px" width="321.654px" height="321.654px"
+	 viewBox="0 0 321.654 321.654" xml:space="preserve">
+  <g>
+    <!-- Лепестки -->
+	  <g fill="#EF9A9A">
+      <circle cx="160.827" cy="90" r="40"/>
+		  <circle cx="210" cy="110" r="40"/>
+		  <circle cx="230" cy="160.827" r="40"/>
+		  <circle cx="210" cy="210" r="40"/>
+		  <circle cx="160.827" cy="230" r="40"/>
+		  <circle cx="110" cy="210" r="40"/>
+		  <circle cx="90" cy="160.827" r="40"/>
+		  <circle cx="110" cy="110" r="40"/>
+    </g>
+
+	  <!-- Центр -->
+	  <circle cx="160.827" cy="160.827" r="25" fill="#FFD54F"/>
+
+	  <!-- Стебель -->
+	  <rect x="157" y="185" width="7" height="100" fill="#4CAF50" rx="3.5"/>
+
+	  <!-- Листья -->
+	  <path d="M170,250 C190,240 190,270 170,260 Z" fill="#81C784"/>
+	  <path d="M150,250 C130,240 130,270 150,260 Z" fill="#81C784"/>
+  </g>
+</svg>

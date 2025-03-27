@@ -6,6 +6,7 @@ import Location from './components/Location';
 import DressCode from './components/DressCode';
 import Details from './components/Details';
 import RSVPForm from './components/RSVPForm';
+import Petals from './components/Petals';
 
 function App() {
     const params = new URLSearchParams(window.location.search);
@@ -47,6 +48,7 @@ function App() {
 
     return (
         <div className="app">
+            <Petals />
             <Header/>
             <Greeting/>
             <Timeline/>
