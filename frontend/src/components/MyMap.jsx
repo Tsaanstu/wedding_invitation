@@ -13,8 +13,11 @@ const MyMap = () => {
     };
 
     return (
-        <YMaps query={{ apikey: process.env.REACT_APP_YANDEX_MAPS_API_KEY }}>
-            <Map defaultState={mapState} width="100%" height="400px">
+        <YMaps>
+            <Map
+                defaultState={mapState}
+                width="100%"
+                height="400px">
                 <Placemark
                     geometry={mapState.center}
                     properties={placemarkProperties}

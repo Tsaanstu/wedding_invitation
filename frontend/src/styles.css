@@ -197,3 +197,38 @@ body::after {
     margin: 0 auto 20px;
     line-height: 1.6;
 }
+
+.address-line {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px; /* уменьшен зазор */
+    white-space: normal;
+    flex-wrap: nowrap; /* чтобы кнопка была на той же строке */
+    text-align: center;
+}
+
+.copy-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #fcecd2;
+    font-size: 1.2em;
+    display: flex;
+    align-items: center;
+    padding: 0;
+    margin: 0;
+    transition: transform 0.2s ease;
+}
+
+.copy-button:hover {
+    transform: scale(1.1);
+}
+
+.copied-notice {
+    color: #fcecd2;
+    margin-top: 10px;
+    font-size: 0.9em;
+}
+
+
