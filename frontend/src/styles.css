@@ -232,3 +232,13 @@ body::after {
 }
 
 
+.color-palette {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.color-palette img {
+    width: 300px;
+    height: auto;
+}

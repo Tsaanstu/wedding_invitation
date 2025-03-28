@@ -22,7 +22,7 @@ function Location() {
                     <FiCopy />
                 </button>
             </p>
-            {copied && <div className="copied-notice">Скопировано!</div>}
+            {/*{copied && <div className="copied-notice">Скопировано!</div>}*/}
             <div className="map-container">
                 <MyMap />
             </div>
