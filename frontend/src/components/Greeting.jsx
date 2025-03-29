@@ -1,16 +1,15 @@
 import React, { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
 
 function Greeting() {
-    const params = new URLSearchParams(window.location.search);
-    const guestSlug = params.get('guest');
-
+    const { slug } = useParams();
     const [guestData, setGuestData] = useState(null);
     const [notFound, setNotFound] = useState(false);
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        if (guestSlug) {
-            fetch(`${process.env.REACT_APP_API_URL}/api/guest/${guestSlug}`)
+        if (slug) {
+            fetch(`${process.env.REACT_APP_API_URL}/api/guest/${slug}`)
                 .then(res => {
                     if (!res.ok) {
                         throw new Error('not found');
@@ -25,8 +24,10 @@ function Greeting() {
                     setNotFound(true);
                     setLoading(false);
                 });
+        } else {
+            setLoading(false);
         }
-    }, [guestSlug]);
+    }, [slug]);
 
     if (loading) return null;
 
@@ -48,15 +49,6 @@ function Greeting() {
             : `Дорогая ${name}!`;
 
     const pronoun = partner_name ? 'вас' : 'тебя';
-
-    if (!guestSlug) {
-        return (
-            <section className="section greeting" data-aos="fade-up">
-                <h2>Приглашение не найдено</h2>
-                <p>Пожалуйста, перейдите по персональной ссылке из приглашения.</p>
-            </section>
-        );
-    }
 
     return (
         <section className="section greeting" data-aos="fade-up">
