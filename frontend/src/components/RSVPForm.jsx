@@ -1,9 +1,9 @@
-import { useParams } from 'react-router-dom';
+import {useParams} from 'react-router-dom';
 import React, {useState, useEffect} from 'react';
 import '../styles.css';
 
 function RSVPForm() {
-    const { slug: guestSlug } = useParams();
+    const {slug: guestSlug} = useParams();
     const [guestData, setGuestData] = useState(null);
     const [attendance, setAttendance] = useState('');
     const [alcohol, setAlcohol] = useState([]);
@@ -37,7 +37,7 @@ function RSVPForm() {
         }
 
         const data = {
-            guest_id: guestData.id,
+            guest_slug: guestData.slug,
             attendance,
             alcohol,
             allergy,

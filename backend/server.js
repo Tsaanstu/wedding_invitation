@@ -12,18 +12,18 @@ app.use(express.json()); // Парсим JSON в запросах
 
 // 🔹 POST /api/rsvp — запись анкеты
 app.post('/api/rsvp', (req, res) => {
-    const {guest_id, attendance, alcohol, allergy} = req.body;
+    const {guest_slug, attendance, alcohol, allergy} = req.body;
 
-    if (!guest_id || !attendance) {
+    if (!guest_slug || !attendance) {
         return res.status(400).json({error: 'Некорректные данные'});
     }
 
     const alcoholList = Array.isArray(alcohol) ? alcohol.join(', ') : '';
 
     db.run(
-        `INSERT INTO rsvp (guest_id, attendance, alcohol, allergy)
+        `INSERT INTO rsvp (guest_slug, attendance, alcohol, allergy)
          VALUES (?, ?, ?, ?)`,
-        [guest_id, attendance, alcoholList, allergy],
+        [guest_slug, attendance, alcoholList, allergy],
         function (err) {
             if (err) {
                 console.error('❌ Ошибка при записи в БД:', err.message);
@@ -39,14 +39,15 @@ app.post('/api/rsvp', (req, res) => {
 app.get('/api/rsvp', (req, res) => {
     const query = `
         SELECT rsvp.id,
+               guests.slug AS guest_slug,
                guests.name AS guest_name,
-               guests.partner_name,
+               COALESCE(guests.partner_name, '') AS partner_name,
                rsvp.attendance,
                rsvp.alcohol,
                rsvp.allergy,
                rsvp.submitted_at
         FROM rsvp
-                 JOIN guests ON guests.id = rsvp.guest_id
+                 JOIN guests ON guests.slug = rsvp.guest_slug
         ORDER BY rsvp.submitted_at DESC
     `;
 
@@ -66,7 +67,7 @@ app.get('/api/guest/:slug', (req, res) => {
     const {slug} = req.params;
 
     db.get(
-        `SELECT id, name, partner_name, gender
+        `SELECT slug, name, partner_name, gender
          FROM guests
          WHERE slug = ?`,
         [slug],
@@ -78,6 +79,26 @@ app.get('/api/guest/:slug', (req, res) => {
 
             if (!row) {
                 return res.status(404).json({error: 'Гость не найден'});
+            }
+
+            res.json(row);
+        }
+    );
+});
+
+
+// 🔹 GET /api/guest — получить информацию о гостях
+app.get('/api/guest', (req, res) => {
+    const {slug} = req.params;
+
+    db.all(
+        `SELECT slug, name, partner_name, gender
+         FROM guests`,
+        [slug],
+        (err, row) => {
+            if (err) {
+                console.error('❌ Ошибка при получении гостя:', err.message);
+                return res.status(500).json({error: 'Ошибка сервера'});
             }
 
             res.json(row);
