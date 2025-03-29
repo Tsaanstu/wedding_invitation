@@ -1,5 +1,5 @@
 import React from "react";
-import {BrowserRouter as Router, Route, Routes, useParams} from "react-router-dom";
+import {Route, Routes, useParams} from "react-router-dom";
 import Petals from "./components/Petals";
 import Header from "./components/Header";
 import Greeting from "./components/Greeting";
@@ -8,6 +8,8 @@ import Location from "./components/Location";
 import DressCode from "./components/DressCode";
 import Details from "./components/Details";
 import RSVPForm from "./components/RSVPForm";
+import GirlParty from "./components/GirlParty";
+import BoyParty from "./components/BoyParty";
 
 function App() {
     return (
@@ -20,23 +22,26 @@ function App() {
 
 function GuestPageWrapper() {
     const {slug} = useParams();
-    const [isValid, setIsValid] = React.useState(null);
+    const [guest, setGuest] = React.useState(null);
+    const [notFound, setNotFound] = React.useState(false);
 
     React.useEffect(() => {
         fetch(`${process.env.REACT_APP_API_URL}/api/guest/${slug}`)
             .then(res => {
-                setIsValid(res.ok);
+                if (!res.ok) throw new Error();
+                return res.json();
             })
-            .catch(() => setIsValid(false));
+            .then(data => setGuest(data))
+            .catch(() => setNotFound(true));
     }, [slug]);
 
-    if (isValid === null) return null; // optionally show loading indicator
-    if (!isValid) return <NotFound/>;
+    if (notFound) return <NotFound/>;
+    if (!guest) return null;
 
-    return <GuestPage/>;
+    return <GuestPage guest={guest}/>;
 }
 
-function GuestPage() {
+function GuestPage({guest}) {
     return (
         <div className="app">
             <Petals/>
@@ -46,6 +51,8 @@ function GuestPage() {
             <Location/>
             <DressCode/>
             <Details/>
+            {guest.girl_party ? <GirlParty /> : null}
+            {guest.boy_party ? <BoyParty /> : null}
             <RSVPForm/>
         </div>
     );
