@@ -1,10 +1,9 @@
+import { useParams } from 'react-router-dom';
 import React, {useState, useEffect} from 'react';
 import '../styles.css';
 
 function RSVPForm() {
-    const params = new URLSearchParams(window.location.search);
-    const guestSlug = params.get('guest');
-
+    const { slug: guestSlug } = useParams();
     const [guestData, setGuestData] = useState(null);
     const [attendance, setAttendance] = useState('');
     const [alcohol, setAlcohol] = useState([]);

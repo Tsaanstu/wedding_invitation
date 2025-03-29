@@ -1,4 +1,6 @@
-import React, {useEffect, useState} from 'react';
+import React from 'react';
+import { Routes, Route, useParams } from 'react-router-dom';
+
 import Header from './components/Header';
 import Greeting from './components/Greeting';
 import Timeline from './components/Timeline';
@@ -8,57 +10,46 @@ import Details from './components/Details';
 import RSVPForm from './components/RSVPForm';
 import Petals from './components/Petals';
 
-function App() {
-    const params = new URLSearchParams(window.location.search);
-    const guestSlug = params.get('guest');
-
-    const [valid, setValid] = useState(false);
-    const [loading, setLoading] = useState(true);
-
-    useEffect(() => {
-        if (!guestSlug) {
-            setLoading(false);
-            return;
-        }
-
-        fetch(`${process.env.REACT_APP_API_URL}/api/guest/${guestSlug}`)
-            .then(res => {
-                if (!res.ok) throw new Error();
-                return res.json();
-            })
-            .then(() => {
-                setValid(true);
-                setLoading(false);
-            })
-            .catch(() => setLoading(false));
-    }, [guestSlug]);
-
-    if (loading) return null;
-
-    if (!valid) {
-        return (
-            <div className="app">
-                <section className="section guest-error" data-aos="fade-up">
-                    <h2>Приглашение не найдено</h2>
-                    <p>Пожалуйста, перейдите по вашей персональной ссылке из приглашения.</p>
-                </section>
-            </div>
-        );
-    }
-
+function GuestPage({ slug }) {
+    console.log('Rendering GuestPage for slug:', slug);
     return (
         <div className="app">
             <Petals />
-            <Header/>
-            <Greeting/>
-            <Timeline/>
-            <Location/>
-            <DressCode/>
-            <Details/>
-            <RSVPForm/>
+            <Header />
+            <Greeting />
+            <Timeline />
+            <Location />
+            <DressCode />
+            <Details />
+            <RSVPForm />
         </div>
     );
 }
 
+function GuestPageWrapper() {
+    const { slug } = useParams();
+    return <GuestPage slug={slug} />;
+}
+
+function NotFound() {
+    console.log('Rendering NotFound page');
+    return (
+        <div className="app">
+            <section className="section guest-error" data-aos="fade-up">
+                <h2>Приглашение не найдено</h2>
+                <p>Пожалуйста, перейдите по вашей персональной ссылке из приглашения.</p>
+            </section>
+        </div>
+    );
+}
+
+function App() {
+    return (
+        <Routes>
+            <Route path="/guest/:slug" element={<GuestPageWrapper />} />
+            <Route path="*" element={<NotFound />} />
+        </Routes>
+    );
+}
 
 export default App;
