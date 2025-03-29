@@ -51,11 +51,9 @@ function GuestPage({guest}) {
             <Location/>
             <DressCode/>
             <Details/>
-            <div className="section-group">
-                {guest.girl_party && <GirlParty />}
-                {guest.boy_party && <BoyParty />}
-                <RSVPForm />
-            </div>
+            {guest.girl_party ? <GirlParty /> : null}
+            {guest.boy_party ? <BoyParty /> : null}
+            <RSVPForm/>
         </div>
     );
 }
