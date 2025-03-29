@@ -10,8 +10,7 @@ import Details from './components/Details';
 import RSVPForm from './components/RSVPForm';
 import Petals from './components/Petals';
 
-function GuestPage() {
-    const { slug } = useParams();
+function GuestPage({ slug }) {
     console.log('Rendering GuestPage for slug:', slug);
     return (
         <div className="app">
@@ -25,6 +24,11 @@ function GuestPage() {
             <RSVPForm />
         </div>
     );
+}
+
+function GuestPageWrapper() {
+    const { slug } = useParams();
+    return <GuestPage slug={slug} />;
 }
 
 function NotFound() {
@@ -42,7 +46,7 @@ function NotFound() {
 function App() {
     return (
         <Routes>
-            <Route path="/guest/:slug" element={<GuestPage />} />
+            <Route path="/guest/:slug" element={<GuestPageWrapper />} />
             <Route path="*" element={<NotFound />} />
         </Routes>
     );
