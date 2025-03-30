@@ -6,12 +6,12 @@ const db = require('./db');
 const app = express();
 const PORT = process.env.API_PORT || 5000;
 
-// ✅ Middleware
+// Middleware
 app.use(cors()); // Разрешаем кросс-доменные запросы
 app.use(express.json()); // Парсим JSON в запросах
 
 
-// 🔹 GET /api/guest/:slug — получить информацию о госте
+// GET /api/guest/:slug — получить информацию о госте
 app.get('/api/guest/:slug', (req, res) => {
     const {slug} = req.params;
 
@@ -35,8 +35,33 @@ app.get('/api/guest/:slug', (req, res) => {
     );
 });
 
+// POST /api/guest/:slug — обновить информацию о госте
+app.post('/api/guest/:slug', (req, res) => {
+    const {slug, name, partner_name, gender, girl_party, boy_party} = req.body;
 
-// 🔹 GET /api/guest — получить информацию о гостях
+    db.run(
+        `INSERT INTO guests (slug, name, partner_name, gender, girl_party, boy_party)
+         VALUES (?, ?, ?, ?, ?, ?)
+             ON CONFLICT(slug) DO UPDATE SET
+              name = excluded.name,
+              partner_name = excluded.partner_name,
+              gender = excluded.gender,
+              girl_party = excluded.girl_party,
+              boy_party = excluded.boy_party`,
+        [slug, name, partner_name, gender, girl_party, boy_party],
+        function (err) {
+            if (err) {
+                console.error('❌ Ошибка при записи в БД:', err.message);
+                return res.status(500).json({error: 'Ошибка сервера'});
+            }
+
+            res.status(200).json({success: true, id: this.lastID});
+        }
+    );
+});
+
+
+// GET /api/guest — получить информацию о гостях
 app.get('/api/guest', (req, res) => {
     const {slug} = req.params;
 
@@ -56,7 +81,7 @@ app.get('/api/guest', (req, res) => {
 });
 
 
-// 🔹 Получить все ответы с именами гостей
+// Получить все ответы с именами гостей
 app.get('/api/rsvp', (req, res) => {
     const query = `
         SELECT rsvp.id,
@@ -83,7 +108,7 @@ app.get('/api/rsvp', (req, res) => {
 });
 
 
-// 🔹 POST /api/rsvp — запись анкеты
+// POST /api/rsvp — запись анкеты
 app.post('/api/rsvp', (req, res) => {
     const {guest_slug, attendance, alcohol, allergy} = req.body;
 
@@ -108,7 +133,6 @@ app.post('/api/rsvp', (req, res) => {
     );
 });
 
-// ✅ Сервер запущен
 app.listen(PORT, () => {
     console.log(`✅ Сервер запущен: http://localhost:${PORT}`);
 });

@@ -173,8 +173,10 @@ db.serialize(() => {
         VALUES (?, ?, ?, ?, ?, ?)
             ON CONFLICT(slug) DO UPDATE SET
             name = excluded.name,
-                                     partner_name = excluded.partner_name,
-                                     gender = excluded.gender
+            partner_name = excluded.partner_name,
+            gender = excluded.gender,
+            girl_party = excluded.girl_party,
+            boy_party = excluded.boy_party
     `);
 
     for (const guest of initialGuests) {
