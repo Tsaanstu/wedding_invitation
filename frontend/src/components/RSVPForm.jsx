@@ -1,25 +1,10 @@
-import {useParams} from 'react-router-dom';
-import React, {useState, useEffect} from 'react';
+import React, {useState} from 'react';
 import '../styles.css';
 
-function RSVPForm() {
-    const {slug: guestSlug} = useParams();
-    const [guestData, setGuestData] = useState(null);
+function RSVPForm({guest}) {
     const [attendance, setAttendance] = useState('');
     const [alcohol, setAlcohol] = useState([]);
     const [allergy, setAllergy] = useState('');
-
-    // Загружаем данные о госте
-    useEffect(() => {
-        if (guestSlug) {
-            fetch(`${process.env.REACT_APP_API_URL}/api/guest/${guestSlug}`)
-                .then(res => res.json())
-                .then(data => setGuestData(data))
-                .catch(err => {
-                    console.error('Ошибка при загрузке гостя:', err);
-                });
-        }
-    }, [guestSlug]);
 
     const handleAlcoholChange = (e) => {
         const {value, checked} = e.target;
@@ -31,13 +16,13 @@ function RSVPForm() {
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        if (!guestData) {
+        if (!guest) {
             alert('Ошибка: гость не найден.');
             return;
         }
 
         const data = {
-            guest_slug: guestData.slug,
+            guest_slug: guest.slug,
             attendance,
             alcohol,
             allergy,
@@ -62,7 +47,7 @@ function RSVPForm() {
             });
     };
 
-    if (!guestSlug) {
+    if (!guest.slug) {
         return (
             <section className="section rsvp" data-aos="fade-up">
                 <h2>Приглашение не найдено</h2>

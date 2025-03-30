@@ -46,14 +46,14 @@ function GuestPage({guest}) {
         <div className="app">
             <Petals/>
             <Header/>
-            <Greeting/>
+            <Greeting guest={guest}/>
             <Timeline/>
             <Location/>
             <DressCode/>
             <Details/>
             {guest.girl_party ? <GirlParty /> : null}
             {guest.boy_party ? <BoyParty /> : null}
-            <RSVPForm/>
+            <RSVPForm guest={guest}/>
         </div>
     );
 }

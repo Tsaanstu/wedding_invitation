@@ -1,46 +1,7 @@
-import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import React from 'react';
 
-function Greeting() {
-    const { slug } = useParams();
-    const [guestData, setGuestData] = useState(null);
-    const [notFound, setNotFound] = useState(false);
-    const [loading, setLoading] = useState(true);
-
-    useEffect(() => {
-        if (slug) {
-            fetch(`${process.env.REACT_APP_API_URL}/api/guest/${slug}`)
-                .then(res => {
-                    if (!res.ok) {
-                        throw new Error('not found');
-                    }
-                    return res.json();
-                })
-                .then(data => {
-                    setGuestData(data);
-                    setLoading(false);
-                })
-                .catch(() => {
-                    setNotFound(true);
-                    setLoading(false);
-                });
-        } else {
-            setLoading(false);
-        }
-    }, [slug]);
-
-    if (loading) return null;
-
-    if (notFound || !guestData) {
-        return (
-            <section className="section greeting" data-aos="fade-up">
-                <h2>Гость не найден</h2>
-                <p>Пожалуйста, проверьте ссылку.</p>
-            </section>
-        );
-    }
-
-    const { name, partner_name, gender } = guestData;
+function Greeting({guest}) {
+    const {name, partner_name, gender} = guest;
 
     const greeting = partner_name
         ? `Дорогие ${name} и ${partner_name}!`
