@@ -6,6 +6,8 @@ function RSVPForm({guest}) {
     const [alcohol, setAlcohol] = useState([]);
     const [allergy, setAllergy] = useState('');
 
+    const alcoholOptions = ['Вино', 'Шампанское', 'Виски', 'Без алкоголя'];
+
     const handleAlcoholChange = (e) => {
         const {value, checked} = e.target;
         setAlcohol(prev =>
@@ -74,13 +76,16 @@ function RSVPForm({guest}) {
                         <label>
                             Предпочитаемый алкоголь:
                             <div className="checkbox-group">
-                                <label><input type="checkbox" value="Вино" onChange={handleAlcoholChange}/> Вино</label>
-                                <label><input type="checkbox" value="Шампанское"
-                                              onChange={handleAlcoholChange}/> Шампанское</label>
-                                <label><input type="checkbox" value="Виски"
-                                              onChange={handleAlcoholChange}/> Виски</label>
-                                <label><input type="checkbox" value="Без алкоголя" onChange={handleAlcoholChange}/> Без
-                                    алкоголя</label>
+                                {alcoholOptions.map(option => (
+                                    <label key={option}>
+                                        <input
+                                            type="checkbox"
+                                            value={option}
+                                            checked={alcohol.includes(option)}
+                                            onChange={handleAlcoholChange}
+                                        /> {option}
+                                    </label>
+                                ))}
                             </div>
                         </label>
 
