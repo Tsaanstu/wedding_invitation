@@ -12,7 +12,15 @@ function DressCode() {
             <p>Главное — ваш комфорт и хорошее настроение!</p>
 
             <div className="color-palette">
-                <img src="/icons/palette.svg" alt="Цветовая палитра" />
+                <img src="/icons/palette1.svg" alt="Цветовая палитра" />
+            </div>
+
+            <div className="color-palette">
+                <img src="/icons/palette2.svg" alt="Цветовая палитра" />
+            </div>
+
+            <div className="color-palette">
+                <img src="/icons/palette3.svg" alt="Цветовая палитра" />
             </div>
         </section>
     );

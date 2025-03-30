@@ -82,12 +82,18 @@ body::after {
 
 .greeting p,
 .details p,
+.details a,
 .dress-code p {
     font-size: 1.1em;
     max-width: 600px;
     margin: 0 auto;
     line-height: 1.6;
     color: #fdfaf5;
+}
+
+.details a {
+    margin-left: 5px;
+    margin-right: 5px;
 }
 
 .timeline-list {
@@ -253,3 +259,58 @@ body::after {
     width: 300px;
     height: auto;
 }
+
+.checkbox-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 12px 20px;
+}
+
+.checkbox-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1em;
+    color: #fdfaf5;
+    position: relative;
+}
+
+.checkbox-item input[type="checkbox"] {
+    appearance: none;
+    -webkit-appearance: none;
+    position: relative;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    background: transparent;
+    border: none;
+    outline: none;
+}
+
+.checkbox-item input[type="checkbox"]::before {
+    content: "♡";
+    font-size: 22px;
+    color: #fcecd2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 22px;
+    height: 22px;
+    line-height: 1;
+    text-align: center;
+    transition: all 0.2s ease;
+}
+
+.checkbox-item input[type="checkbox"]:checked::before {
+    content: "❤️";
+    color: #f66d9b;
+    transform: scale(1.1);
+}
+
+
+.rsvp-form-subtitle {
+    color: #fdfaf5;
+    font-size: 1em;
+    margin-bottom: 0;
+}
+

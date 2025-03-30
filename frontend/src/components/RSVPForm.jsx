@@ -6,7 +6,21 @@ function RSVPForm({guest}) {
     const [alcohol, setAlcohol] = useState([]);
     const [allergy, setAllergy] = useState('');
 
-    const alcoholOptions = ['Вино', 'Шампанское', 'Виски', 'Без алкоголя'];
+    const alcoholOptions = [
+        'Пиво светлое',
+        'Пиво тёмное',
+        'Сидр',
+        'Вино красное полусладкое',
+        'Вино красное полусухое',
+        'Вино белое полусладкое',
+        'Вино белое полусухое',
+        'Шампанское полусладкое',
+        'Шампанское полусухое',
+        'Виски',
+        'Коньяк',
+        'Водка',
+        'Безалкогольные напитки'
+    ];
 
     const handleAlcoholChange = (e) => {
         const {value, checked} = e.target;
@@ -73,21 +87,21 @@ function RSVPForm({guest}) {
 
                 {attendance === 'yes' && (
                     <>
-                        <label>
-                            Предпочитаемый алкоголь:
-                            <div className="checkbox-group">
-                                {alcoholOptions.map(option => (
-                                    <label key={option}>
-                                        <input
-                                            type="checkbox"
-                                            value={option}
-                                            checked={alcohol.includes(option)}
-                                            onChange={handleAlcoholChange}
-                                        /> {option}
-                                    </label>
-                                ))}
-                            </div>
-                        </label>
+                        <p className="rsvp-form-subtitle">Предпочитаемый алкоголь:</p>
+                        <div className="checkbox-grid">
+                            {alcoholOptions.map(option => (
+                                <div key={option} className="checkbox-item">
+                                    <input
+                                        type="checkbox"
+                                        id={option}
+                                        value={option}
+                                        checked={alcohol.includes(option)}
+                                        onChange={handleAlcoholChange}
+                                    />
+                                    <label htmlFor={option}>{option}</label>
+                                </div>
+                            ))}
+                        </div>
 
                         <label>
                             Есть ли у вас аллергии?
