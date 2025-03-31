@@ -1,6 +1,30 @@
+@font-face {
+    font-family: 'Daneehand';
+    src: url('./assets/fonts/Daneehand-Regular-Cyr.woff') format('woff');
+}
+@font-face {
+    font-family: 'BleekerCyrillic';
+    src: url('./assets/fonts/BleekerCyrillic.woff') format('woff');
+}
+@font-face {
+    font-family: 'Typey';
+    src: url('./assets/fonts/Typey.woff') format('woff');
+}
+@font-face {
+    font-family: 'Typey Italic';
+    src: url('./assets/fonts/Typey_Italic.woff') format('truetype');
+}
+@font-face {
+    font-family: 'PassionsConflict';
+    src: url('./assets/fonts/PassionsConflictRUS-Regular.woff') format('woff');
+}
+@font-face {
+    font-family:'UraBumBumSP';
+    src: url('./assets/fonts/UraBumBumSP.woff') format('woff');
+}
+
 body {
     margin: 0;
-    font-family: 'Open Sans', sans-serif;
     color: #222;
     background-image: url('../public/images/background.jpg');
     background-repeat: no-repeat;
@@ -18,7 +42,7 @@ body::before {
     left: 0;
     width: 100vw;
     height: 100vh;
-    background: rgba(255, 255, 255, 0.3);
+    background: rgba(255, 255, 255, 0.1);
     z-index: -1;
 }
 
@@ -45,8 +69,9 @@ body::after {
 }
 
 .header .names {
-    font-family: 'Playfair Display', serif;
-    font-size: 3em;
+    font-family: 'PassionsConflict';
+    font-size: 8em;
+    font-weight: lighter;
     color: #fcecd2; /* кремовый */
     margin: 0;
     text-shadow: 0 1px 4px rgba(0, 0, 0, 0.7);
@@ -67,6 +92,8 @@ body::after {
     margin-bottom: 30px;
     color: #fcecd2; /* кремовый */
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.6);
+    font-size: 3em;
+    font-family: 'Typey';
 }
 
 .greeting p,
@@ -76,7 +103,9 @@ body::after {
     max-width: 600px;
     margin: 0 auto;
     line-height: 1.6;
-    color: #fdfaf5;
+    font-family: 'Typey';
+    font-weight: 10;
+    color: #e6e2dd;
 }
 
 .timeline-list {
@@ -123,7 +152,8 @@ body::after {
 }
 
 .rsvp {
-    margin-top: 60px;
+    margin-top: 60px
+
 }
 
 .rsvp-form {
@@ -186,7 +216,7 @@ body::after {
 .guest-error p {
     max-width: 500px;
     margin: 0 auto;
-    font-size: 1.1em;
+    font-size: 36px;
     color: #fcecd2;
 }
 
