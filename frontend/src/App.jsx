@@ -1,64 +1,70 @@
-import React, {useEffect, useState} from 'react';
-import Header from './components/Header';
-import Greeting from './components/Greeting';
-import Timeline from './components/Timeline';
-import Location from './components/Location';
-import DressCode from './components/DressCode';
-import Details from './components/Details';
-import RSVPForm from './components/RSVPForm';
-import Petals from './components/Petals';
+import React from "react";
+import {Route, Routes, useParams} from "react-router-dom";
+import Petals from "./components/Petals";
+import Header from "./components/Header";
+import Greeting from "./components/Greeting";
+import Timeline from "./components/Timeline";
+import Location from "./components/Location";
+import DressCode from "./components/DressCode";
+import Details from "./components/Details";
+import RSVPForm from "./components/RSVPForm";
+import GirlParty from "./components/GirlParty";
+import BoyParty from "./components/BoyParty";
 
 function App() {
-    const params = new URLSearchParams(window.location.search);
-    const guestSlug = params.get('guest');
+    return (
+        <Routes>
+            <Route path="/guest/:slug" element={<GuestPageWrapper/>}/>
+            <Route path="*" element={<NotFound/>}/>
+        </Routes>
+    );
+}
 
-    const [valid, setValid] = useState(false);
-    const [loading, setLoading] = useState(true);
+function GuestPageWrapper() {
+    const {slug} = useParams();
+    const [guest, setGuest] = React.useState(null);
+    const [notFound, setNotFound] = React.useState(false);
 
-    useEffect(() => {
-        if (!guestSlug) {
-            setLoading(false);
-            return;
-        }
-
-        fetch(`${process.env.REACT_APP_API_URL}/api/guest/${guestSlug}`)
+    React.useEffect(() => {
+        fetch(`${process.env.REACT_APP_API_URL}/api/guest/${slug}`)
             .then(res => {
                 if (!res.ok) throw new Error();
                 return res.json();
             })
-            .then(() => {
-                setValid(true);
-                setLoading(false);
-            })
-            .catch(() => setLoading(false));
-    }, [guestSlug]);
+            .then(data => setGuest(data))
+            .catch(() => setNotFound(true));
+    }, [slug]);
 
-    if (loading) return null;
+    if (notFound) return <NotFound/>;
+    if (!guest) return null;
 
-    if (!valid) {
-        return (
-            <div className="app">
-                <section className="section guest-error" data-aos="fade-up">
-                    <h2>Приглашение не найдено</h2>
-                    <p>Пожалуйста, перейдите по вашей персональной ссылке из приглашения.</p>
-                </section>
-            </div>
-        );
-    }
+    return <GuestPage guest={guest}/>;
+}
 
+function GuestPage({guest}) {
     return (
         <div className="app">
-            <Petals />
+            <Petals/>
             <Header/>
-            <Greeting/>
+            <Greeting guest={guest}/>
             <Timeline/>
             <Location/>
             <DressCode/>
             <Details/>
-            <RSVPForm/>
+            {guest.girl_party ? <GirlParty /> : null}
+            {guest.boy_party ? <BoyParty /> : null}
+            <RSVPForm guest={guest}/>
         </div>
     );
 }
 
+function NotFound() {
+    return (
+        <section className="section rsvp" data-aos="fade-up">
+            <h2>Приглашение не найдено</h2>
+            <h2>Для заполнения анкеты используйте вашу персональную ссылку.</h2>
+        </section>
+    );
+}
 
 export default App;

@@ -1,26 +1,26 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState} from 'react';
 import '../styles.css';
 
-function RSVPForm() {
-    const params = new URLSearchParams(window.location.search);
-    const guestSlug = params.get('guest');
-
-    const [guestData, setGuestData] = useState(null);
+function RSVPForm({guest}) {
     const [attendance, setAttendance] = useState('');
     const [alcohol, setAlcohol] = useState([]);
     const [allergy, setAllergy] = useState('');
 
-    // Загружаем данные о госте
-    useEffect(() => {
-        if (guestSlug) {
-            fetch(`${process.env.REACT_APP_API_URL}/api/guest/${guestSlug}`)
-                .then(res => res.json())
-                .then(data => setGuestData(data))
-                .catch(err => {
-                    console.error('Ошибка при загрузке гостя:', err);
-                });
-        }
-    }, [guestSlug]);
+    const alcoholOptions = [
+        'Пиво светлое',
+        'Пиво тёмное',
+        'Сидр',
+        'Вино красное полусладкое',
+        'Вино красное полусухое',
+        'Вино белое полусладкое',
+        'Вино белое полусухое',
+        'Шампанское полусладкое',
+        'Шампанское полусухое',
+        'Виски',
+        'Коньяк',
+        'Водка',
+        'Безалкогольные напитки'
+    ];
 
     const handleAlcoholChange = (e) => {
         const {value, checked} = e.target;
@@ -32,13 +32,13 @@ function RSVPForm() {
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        if (!guestData) {
+        if (!guest) {
             alert('Ошибка: гость не найден.');
             return;
         }
 
         const data = {
-            guest_id: guestData.id,
+            guest_slug: guest.slug,
             attendance,
             alcohol,
             allergy,
@@ -63,7 +63,7 @@ function RSVPForm() {
             });
     };
 
-    if (!guestSlug) {
+    if (!guest.slug) {
         return (
             <section className="section rsvp" data-aos="fade-up">
                 <h2>Приглашение не найдено</h2>
@@ -87,18 +87,21 @@ function RSVPForm() {
 
                 {attendance === 'yes' && (
                     <>
-                        <label>
-                            Предпочитаемый алкоголь:
-                            <div className="checkbox-group">
-                                <label><input type="checkbox" value="Вино" onChange={handleAlcoholChange}/> Вино</label>
-                                <label><input type="checkbox" value="Шампанское"
-                                              onChange={handleAlcoholChange}/> Шампанское</label>
-                                <label><input type="checkbox" value="Виски"
-                                              onChange={handleAlcoholChange}/> Виски</label>
-                                <label><input type="checkbox" value="Без алкоголя" onChange={handleAlcoholChange}/> Без
-                                    алкоголя</label>
-                            </div>
-                        </label>
+                        <p className="rsvp-form-subtitle">Предпочитаемый алкоголь:</p>
+                        <div className="checkbox-grid">
+                            {alcoholOptions.map(option => (
+                                <div key={option} className="checkbox-item">
+                                    <input
+                                        type="checkbox"
+                                        id={option}
+                                        value={option}
+                                        checked={alcohol.includes(option)}
+                                        onChange={handleAlcoholChange}
+                                    />
+                                    <label htmlFor={option}>{option}</label>
+                                </div>
+                            ))}
+                        </div>
 
                         <label>
                             Есть ли у вас аллергии?

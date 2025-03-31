@@ -6,12 +6,22 @@ function DressCode() {
         <section className="section dress-code" data-aos="fade-up">
             <h2>Дресс-код</h2>
             <p>
-                Мы будем рады, если вы поддержите атмосферу праздника в одежде пастельных тонов:
-                нежно-голубой, розовый, серый, светло-желтый.
+                Мы будем рады, если вы поддержите атмосферу праздника в одежде
+                пастельных тонов: нежно-голубой, розовый, серый, светло-желтый.
             </p>
-            <p>
-                Главное — ваш комфорт и хорошее настроение!
-            </p>
+            <p>Главное — ваш комфорт и хорошее настроение!</p>
+
+            <div className="color-palette">
+                <img src="/icons/palette1.svg" alt="Цветовая палитра" />
+            </div>
+
+            <div className="color-palette">
+                <img src="/icons/palette2.svg" alt="Цветовая палитра" />
+            </div>
+
+            <div className="color-palette">
+                <img src="/icons/palette3.svg" alt="Цветовая палитра" />
+            </div>
         </section>
     );
 }
