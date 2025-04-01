@@ -22,17 +22,47 @@
     font-family:'UraBumBumSP';
     src: url('./assets/fonts/UraBumBumSP.woff') format('woff');
 }
+/*@media (orientation: landscape) {*/
+/*    body {*/
+/*        margin: 0;*/
+/*        color: #222;*/
+/*        background-image: url('../public/images/background.webp');*/
+/*        background-repeat: no-repeat;*/
+/*        background-position: center;*/
+/*        background-attachment: fixed;*/
+/*        background-size: cover;*/
+/*        background-blend-mode: normal;*/
+/*        position: relative;*/
+/*        background-color: #f0f0f0;*/
+/*    }*/
+/*}*/
+
+/*@media (orientation: portrait) {*/
+/*    body {*/
+/*        margin: 0;*/
+/*        color: #222;*/
+/*        background-image: url('../public/images/background-portrait.png');*/
+/*        background-repeat: no-repeat;*/
+/*        background-position: center;*/
+/*        background-attachment: fixed;*/
+/*        background-size: cover;*/
+/*        background-blend-mode: normal;*/
+/*        position: relative;*/
+/*        background-color: #f0f0f0;*/
+/*    }*/
+/*}*/
 
 body {
     margin: 0;
     color: #222;
-    background-image: url('../public/images/background.jpg');
+    background-image: url('../public/images/background.webp');
     background-repeat: no-repeat;
-    background-position: center center;
+    background-position: center;
     background-attachment: fixed;
     background-size: cover;
-    background-blend-mode: overlay;
+    background-blend-mode: normal;
     position: relative;
+    background-color: #f0f0f0;
 }
 
 body::before {
@@ -61,7 +91,8 @@ body::after {
 .section {
     padding: 60px 20px;
     text-align: center;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(255, 255, 255, 0.7);
+    /*background-color: rgba(0, 0, 0, 0.5);*/
     border-radius: 12px;
     margin: 30px auto;
     max-width: 900px;
@@ -70,18 +101,28 @@ body::after {
 
 .header .names {
     font-family: 'PassionsConflict';
-    font-size: 8em;
+    font-size: 9em;
     font-weight: lighter;
-    color: #fcecd2; /* кремовый */
+    /*color: #EAC57D;*/
+    color: #EEA988;
+    text-decoration-line: underline;
+    text-decoration-style: solid;
+    text-decoration-thickness: 2px;
+    text-decoration-color:rgba(163, 125, 108, 0.5) ;
     margin: 0;
-    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.7);
+    text-shadow: 4px 4px 10px rgba(163, 125, 108, 0.7);
+    transition: color 0.3s ease;
+}
+.header .names:hover {
+    transform: scaleX(1);
+    color: #d7a84d;
 }
 
-.header .date {
-    font-size: 1.2em;
-    color: #e6e2dd;
-    margin-top: 10px;
-}
+/*.header .date {*/
+/*    font-size: 1.2em;*/
+/*    color: #e6e2dd;*/
+/*    margin-top: 10px;*/
+/*}*/
 
 .greeting h2,
 .timeline h2,
@@ -89,8 +130,10 @@ body::after {
 .dress-code h2,
 .details h2,
 .rsvp h2 {
-    margin-bottom: 30px;
-    color: #fcecd2; /* кремовый */
+    margin-bottom:20px;
+    margin-top: 2px;
+    /*color: #E48716;*/
+    color: #6c2f22;
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.6);
     font-size: 3em;
     font-family: 'Typey';
@@ -103,7 +146,7 @@ body::after {
 .details h3,
 .rsvp h3 {
     margin-bottom: 26px;
-    color: #fcecd2; /* кремовый */
+    color: #39483e; /* кремовый */
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.6);
 }
 
@@ -117,7 +160,7 @@ body::after {
     line-height: 1.6;
     font-family: 'Typey';
     font-weight: 10;
-    color: #e6e2dd;
+    color: #9c5b51;
 }
 
 .details a {
