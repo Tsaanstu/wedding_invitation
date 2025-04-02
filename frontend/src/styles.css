@@ -1,15 +1,69 @@
-body {
-    margin: 0;
-    font-family: 'Open Sans', sans-serif;
-    color: #222;
-    background-image: url('../public/images/background.jpg');
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-attachment: fixed;
-    background-size: cover;
-    background-blend-mode: overlay;
-    position: relative;
+@font-face {
+    font-family: 'Daneehand';
+    src: url('./assets/fonts/Daneehand-Regular-Cyr.woff') format('woff');
 }
+@font-face {
+    font-family: 'BleekerCyrillic';
+    src: url('./assets/fonts/BleekerCyrillic.woff') format('woff');
+}
+@font-face {
+    font-family: 'Typey';
+    src: url('./assets/fonts/Typey.woff') format('woff');
+}
+@font-face {
+    font-family: 'Typey Italic';
+    src: url('./assets/fonts/Typey_Italic.woff') format('truetype');
+}
+@font-face {
+    font-family: 'PassionsConflict';
+    src: url('./assets/fonts/PassionsConflictRUS-Regular.woff') format('woff');
+}
+@font-face {
+    font-family:'UraBumBumSP';
+    src: url('./assets/fonts/UraBumBumSP.woff') format('woff');
+}
+@media (orientation: landscape) {
+    body {
+        margin: 0;
+        color: #222;
+        background-image: url('../public/images/background.webp');
+        background-repeat: no-repeat;
+        background-position: center;
+        background-attachment: fixed;
+        background-size: cover;
+        background-blend-mode: normal;
+        position: relative;
+        background-color: #f0f0f0;
+    }
+}
+
+@media (orientation: portrait) {
+    body {
+        margin: 0;
+        color: #222;
+        background-image: url('../public/images/background.webp');
+        background-repeat: no-repeat;
+        background-position: center;
+        background-attachment: fixed;
+        background-size: cover;
+        background-blend-mode: normal;
+        position: relative;
+        background-color: #f0f0f0;
+    }
+}
+
+/*body {*/
+/*    margin: 0;*/
+/*    color: #222;*/
+/*    background-image: url('../public/images/background.webp');*/
+/*    background-repeat: no-repeat;*/
+/*    background-position: center;*/
+/*    background-attachment: fixed;*/
+/*    background-size: cover;*/
+/*    background-blend-mode: normal;*/
+/*    position: relative;*/
+/*    background-color: #f0f0f0;*/
+/*}*/
 
 body::before {
     content: "";
@@ -18,7 +72,7 @@ body::before {
     left: 0;
     width: 100vw;
     height: 100vh;
-    background: rgba(255, 255, 255, 0.3);
+    background: rgba(255, 255, 255, 0.1);
     z-index: -1;
 }
 
@@ -37,26 +91,34 @@ body::after {
 .section {
     padding: 60px 20px;
     text-align: center;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(255,255, 255, 0.6);
+    /*background-color: rgba(0, 0, 0, 0.5);*/
     border-radius: 12px;
     margin: 30px auto;
     max-width: 900px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
 }
 
 .header .names {
-    font-family: 'Playfair Display', serif;
-    font-size: 3em;
-    color: #fcecd2; /* кремовый */
+    font-family: 'PassionsConflict';
+    font-size: 9em;
+    font-weight: normal;
+    /*color: #EAC57D;*/
+    color: #b9375e;
+    text-decoration-line: underline;
+    text-decoration-style: solid;
+    text-decoration-thickness: 3px;
+    text-decoration-color:rgba(163, 125, 108, 0.5) ;
     margin: 0;
-    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.7);
+    text-shadow: 4px 4px 10px rgba(163, 125, 108, 0.7);
 }
 
-.header .date {
-    font-size: 1.2em;
-    color: #e6e2dd;
-    margin-top: 10px;
-}
+
+/*.header .date {*/
+/*    font-size: 1.2em;*/
+/*    color: #e6e2dd;*/
+/*    margin-top: 10px;*/
+/*}*/
 
 .greeting h2,
 .timeline h2,
@@ -64,9 +126,14 @@ body::after {
 .dress-code h2,
 .details h2,
 .rsvp h2 {
-    margin-bottom: 30px;
-    color: #fcecd2; /* кремовый */
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.6);
+    margin-bottom:20px;
+    margin-top: 2px;
+    /*color: #E48716;*/
+    color: #8A2846;
+    /*text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.6);*/
+    font-size: 3em;
+    font-family: 'BleekerCyrillic';
+    font-weight: lighter;
 }
 
 .greeting h3,
@@ -76,19 +143,24 @@ body::after {
 .details h3,
 .rsvp h3 {
     margin-bottom: 26px;
-    color: #fcecd2; /* кремовый */
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.6);
+    color: #a53860;
+    /*text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.6);*/
+    font-family: 'BleekerCyrillic';
+    font-weight: lighter;
+    font-size: 1.5em;
 }
 
 .greeting p,
 .details p,
 .details a,
 .dress-code p {
-    font-size: 1.1em;
+    font-size: 1.4em;
     max-width: 600px;
     margin: 0 auto;
     line-height: 1.6;
-    color: #fdfaf5;
+    font-family: 'BleekerCyrillic';
+    font-weight: lighter;
+    color: #602437;
 }
 
 .details a {
@@ -101,6 +173,7 @@ body::after {
     padding: 0;
     max-width: 500px;
     margin: 0 auto;
+    color: #602437;
 }
 
 .timeline-item {
@@ -111,6 +184,7 @@ body::after {
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     max-width: 500px;
     margin: 0 auto;
+    color: #602437;
 }
 
 .timeline-icon img {
@@ -118,16 +192,30 @@ body::after {
     height: 28px;
 }
 
-.timeline-time {
-    font-weight: bold;
-    color: #fdfaf5;
-    width: 60px;
-    text-align: right;
-}
 
 .timeline-title {
-    color: #f0e6d2;
+    display: flex;
+    align-items: center;
+    font-family: 'BleekerCyrillic';
+    font-size: 1.5em;
+    color: #602437;
     flex-grow: 1;
+    position: relative;
+}
+.timeline-time {
+    font-family: 'BleekerCyrillic';
+    font-size: 1.5em;
+    color: #602437;
+    white-space: nowrap;
+}
+
+.timeline-title::before {
+    content: '';
+    flex-grow: 1;
+    border-bottom: 3px dotted #94425c;
+    height: 1px;
+    margin: 0 10px;
+    transform: translateY(+6px); /* Чуть поднимаем линию */
 }
 
 .map-container {
@@ -137,10 +225,12 @@ body::after {
     max-width: 800px;
     margin-left: auto;
     margin-right: auto;
+
 }
 
 .rsvp {
-    margin-top: 60px;
+    margin-top: 60px
+
 }
 
 .rsvp-form {
@@ -151,6 +241,8 @@ body::after {
     margin: 0 auto;
     gap: 20px;
     text-align: left;
+    font-family: 'BleekerCyrillic';
+
 }
 
 .rsvp-form label {
@@ -203,16 +295,17 @@ body::after {
 .guest-error p {
     max-width: 500px;
     margin: 0 auto;
-    font-size: 1.1em;
+    font-size: 36px;
     color: #fcecd2;
 }
 
 .location p {
-    font-size: 1em;
-    color: #fcecd2; /* кремовый цвет для контраста с тёмным фоном */
+    font-size: 1.4em;
     max-width: 600px;
     margin: 0 auto 20px;
     line-height: 1.6;
+    font-family: 'BleekerCyrillic';
+    color: #6f1d1b;
 }
 
 .address-line {

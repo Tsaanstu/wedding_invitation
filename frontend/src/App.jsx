@@ -25,6 +25,8 @@ function GuestPageWrapper() {
     const [guest, setGuest] = React.useState(null);
     const [notFound, setNotFound] = React.useState(false);
 
+    console.log(`${process.env.REACT_APP_API_URL}/api/guest/${slug}`)
+
     React.useEffect(() => {
         fetch(`${process.env.REACT_APP_API_URL}/api/guest/${slug}`)
             .then(res => {
