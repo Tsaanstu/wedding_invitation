@@ -56,8 +56,8 @@ body::after {
 }
 
 .header .names {
-    font-family: 'Passions Conflict';
-    font-size: 3em;
+    font-family: 'Passions Conflict', cursive;
+    font-size: 6rem;
     color: #fcecd2; /* кремовый */
     margin: 0;
     text-shadow: 0 1px 4px rgba(0, 0, 0, 0.7);
