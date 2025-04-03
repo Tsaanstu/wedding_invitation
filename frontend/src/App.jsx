@@ -10,13 +10,20 @@ import Details from "./components/Details";
 import RSVPForm from "./components/RSVPForm";
 import GirlParty from "./components/GirlParty";
 import BoyParty from "./components/BoyParty";
+import BackgroundManager from "./components/BackgroundManager";
 
 function App() {
     return (
-        <Routes>
-            <Route path="/guest/:slug" element={<GuestPageWrapper/>}/>
-            <Route path="*" element={<NotFound/>}/>
-        </Routes>
+        <>
+            <BackgroundManager/>
+
+            <div className="app">
+                <Routes>
+                    <Route path="/guest/:slug" element={<GuestPageWrapper/>}/>
+                    <Route path="*" element={<NotFound/>}/>
+                </Routes>
+            </div>
+        </>
     );
 }
 
@@ -43,7 +50,9 @@ function GuestPageWrapper() {
 
 function GuestPage({guest}) {
     return (
-        <div className="app">
+        <>
+            {/*<BackgroundManager/>*/}
+            {/*<div className="app">*/}
             <Petals/>
             <Header/>
             <Greeting guest={guest}/>
@@ -51,10 +60,11 @@ function GuestPage({guest}) {
             <Location/>
             <DressCode/>
             <Details/>
-            {guest.girl_party ? <GirlParty /> : null}
-            {guest.boy_party ? <BoyParty /> : null}
+            {guest.girl_party ? <GirlParty/> : null}
+            {guest.boy_party ? <BoyParty/> : null}
             <RSVPForm guest={guest}/>
-        </div>
+            {/*</div>*/}
+        </>
     );
 }
 
