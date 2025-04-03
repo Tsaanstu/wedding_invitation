@@ -1,31 +1,28 @@
 import React, { useEffect } from "react";
-import "../styles.css";
+import "../styles.css"; // импортируем стили для фона
 
 function BackgroundManager() {
-    useEffect(() => {
-        const bg = document.querySelector(".background");
+  useEffect(() => {
+    const updateBackground = () => {
+      const bg = document.querySelector(".background");
+      if (!bg) return;
 
-        const setBackground = () => {
-            const isPortrait = window.innerHeight > window.innerWidth;
-            const bgUrl = isPortrait
-                ? "/images/background_vert.png"
-                : "/images/background.webp";
+      const isPortrait = window.innerHeight > window.innerWidth;
+      const bgUrl = isPortrait
+        ? "/images/background_vert.png" // для портретной ориентации
+        : "/images/background.webp"; // для ландшафтной ориентации
 
-            console.log("Orientation:", isPortrait ? "portrait" : "landscape");
-            console.log("Setting background:", bgUrl);
+      console.log("Setting background:", bgUrl); // проверяем URL фона в консоли
+      bg.style.backgroundImage = `url(${bgUrl})`;
+    };
 
-            if (bg) {
-                bg.style.backgroundImage = `url(${bgUrl})`;
-            }
-        };
+    updateBackground(); // вызываем при монтировании
+    window.addEventListener("resize", updateBackground); // обновляем при смене ориентации
 
-        setBackground();
-        window.addEventListener("resize", setBackground);
+    return () => window.removeEventListener("resize", updateBackground); // очищаем
+  }, []);
 
-        return () => window.removeEventListener("resize", setBackground);
-    }, []);
-
-    return <div className="background" />;
+  return <div className="background" />; // элемент фона
 }
 
 export default BackgroundManager;
