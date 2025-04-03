@@ -1,24 +1,23 @@
-import React, { useEffect } from "react";
-import "../styles.css"; // импортируем стили для фона
+import {useEffect} from "react";
 
 function BackgroundManager() {
-  useEffect(() => {
-    const bg = document.querySelector(".background");
-    const updateBackground = () => {
-      const isPortrait = window.innerHeight > window.innerWidth;
-      const bgUrl = isPortrait
-        ? "/images/background_vert.png" // для портретной ориентации
-        : "/images/background.webp"; // для ландшафтной ориентации
+    useEffect(() => {
+        const updateOrientation = () => {
+            const isPortrait = window.innerHeight > window.innerWidth;
 
-      console.log("Setting background:", bgUrl); // проверяем URL фона в консоли
-      bg.style.backgroundImage = `url(${bgUrl})`;
-    };
-    updateBackground();
-    window.addEventListener("resize", updateBackground);
-    return () => window.removeEventListener("resize", updateBackground);
-  }, []);
+            // Удаляем предыдущие классы
+            document.body.classList.remove("portrait", "landscape");
 
-  return <div className="background" />;
+            // Добавляем нужный класс
+            document.body.classList.add(isPortrait ? "portrait" : "landscape");
+        };
+
+        updateOrientation(); // запускаем при загрузке
+        window.addEventListener("resize", updateOrientation);
+        return () => window.removeEventListener("resize", updateOrientation);
+    }, []);
+
+    return null;
 }
 
 export default BackgroundManager;
