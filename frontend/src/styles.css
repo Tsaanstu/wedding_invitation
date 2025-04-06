@@ -1,4 +1,29 @@
 @font-face {
+    font-family: 'Daneehand';
+    src: url('../public/fonts/Daneehand-Regular-Cyr.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'BleekerCyrillic';
+    src: url('../public/fonts/BleekerCyrillic.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'Typey';
+    src: url('../public/fonts/Typey.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'Typey Italic';
+    src: url('../public/fonts/Typey_Italic.woff') format('truetype');
+}
+
+@font-face {
+    font-family: 'UraBumBumSP';
+    src: url('../public/fonts/UraBumBumSP.woff') format('woff');
+}
+
+@font-face {
     font-family: 'Passions Conflict';
     src: url('../public/fonts/PassionsConflictRUS-Regular.woff') format('truetype');
     font-weight: normal;
@@ -8,7 +33,6 @@
 *, *::before, *::after {
     box-sizing: border-box;
 }
-
 
 body, html, #root {
     margin: 0;
@@ -40,11 +64,10 @@ body, html, #root {
     left: 0;
     width: 100%;
     height: 200px;
-    background: linear-gradient(to bottom, rgba(0,0,0,0.4), rgba(0,0,0,0.8));
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.8));
     pointer-events: none;
     z-index: -999;
 }
-
 
 body::before {
     content: "";
@@ -112,6 +135,7 @@ body::after {
     margin-bottom: 30px;
     color: #fcecd2; /* кремовый */
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.6);
+    font-family: 'BleekerCyrillic', sans-serif;
 }
 
 .greeting h3,
@@ -123,6 +147,7 @@ body::after {
     margin-bottom: 26px;
     color: #fcecd2; /* кремовый */
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.6);
+    font-family: 'BleekerCyrillic', sans-serif;
 }
 
 .greeting p,
@@ -134,6 +159,7 @@ body::after {
     margin: 0 auto;
     line-height: 1.6;
     color: #fdfaf5;
+    font-family: 'BleekerCyrillic', sans-serif;
 }
 
 .details a {
@@ -168,11 +194,13 @@ body::after {
     color: #fdfaf5;
     width: 60px;
     text-align: right;
+    font-family: 'BleekerCyrillic', sans-serif;
 }
 
 .timeline-title {
     color: #f0e6d2;
     flex-grow: 1;
+    font-family: 'BleekerCyrillic', sans-serif;
 }
 
 .map-container {
@@ -196,6 +224,7 @@ body::after {
     margin: 0 auto;
     gap: 20px;
     text-align: left;
+    font-family: 'BleekerCyrillic', sans-serif;
 }
 
 .rsvp-form label {
@@ -258,6 +287,7 @@ body::after {
     max-width: 600px;
     margin: 0 auto 20px;
     line-height: 1.6;
+    font-family: 'BleekerCyrillic', sans-serif;
 }
 
 .address-line {
@@ -292,7 +322,6 @@ body::after {
     margin-top: 10px;
     font-size: 0.9em;
 }
-
 
 .color-palette {
     display: flex;
@@ -352,10 +381,8 @@ body::after {
     transform: scale(1.1);
 }
 
-
 .rsvp-form-subtitle {
     color: #fdfaf5;
     font-size: 1em;
     margin-bottom: 0;
 }
-
