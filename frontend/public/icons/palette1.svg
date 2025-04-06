@@ -1,7 +1,0 @@
-<svg width="300" height="60" xmlns="http://www.w3.org/2000/svg">
-    <circle cx="30"  cy="30" r="25" fill="#A0C1A1" />
-    <circle cx="90"  cy="30" r="25" fill="#869D8F" />
-    <circle cx="150" cy="30" r="25" fill="#DAD1C2" />
-    <circle cx="210" cy="30" r="25" fill="#D4B084" />
-    <circle cx="270" cy="30" r="25" fill="#E8E8E0" />
-</svg>
