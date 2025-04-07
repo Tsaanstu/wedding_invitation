@@ -1,8 +1,14 @@
 @font-face {
-    font-family: 'Passions Conflict';
-    src: url('../public/fonts/PassionsConflictRUS-Regular.woff') format('truetype');
-    font-weight: normal;
-    font-style: normal;
+    font-family: 'BleekerCyrillic';
+    src: url('./assets/fonts/BleekerCyrillic.woff') format('woff');
+}
+@font-face {
+    font-family: 'Typey';
+    src: url('./assets/fonts/Typey.woff') format('woff');
+}
+@font-face {
+    font-family: 'PassionsConflict';
+    src: url('./assets/fonts/PassionsConflictRUS-Regular.woff') format('woff');
 }
 
 *, *::before, *::after {
@@ -81,27 +87,33 @@ body::after {
 
 .section {
     padding: 60px 20px;
-    text-align: center;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(255,255, 255, 0.6);
     border-radius: 12px;
     margin: 30px auto;
     max-width: 900px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+    text-align: center;
 }
 
 .header .names {
-    font-family: 'Passions Conflict', cursive;
-    font-size: 6rem;
-    color: #fcecd2; /* кремовый */
+    font-family: 'PassionsConflict';
+    font-size: 9rem;
+    color: #b9375e;
+    font-weight: normal;
+    text-decoration-line: underline;
+    text-decoration-style: solid;
+    text-decoration-thickness: 3px; /* px, иначе ломается */
+    text-decoration-color: rgba(163, 125, 108, 0.5) ;
     margin: 0;
-    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.7);
+    text-shadow: 4px 4px 10px rgba(163, 125, 108, 0.7); /* px */
+    text-align: center;
 }
 
-.header .date {
-    font-size: 1.2em;
-    color: #e6e2dd;
-    margin-top: 10px;
-}
+/*.header .date {*/
+/*    font-size: 1.2em;*/
+/*    color: #e6e2dd;*/
+/*    margin-top: 10px;*/
+/*}*/
 
 .greeting h2,
 .timeline h2,
@@ -109,36 +121,148 @@ body::after {
 .dress-code h2,
 .details h2,
 .rsvp h2 {
-    margin-bottom: 30px;
-    color: #fcecd2; /* кремовый */
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.6);
+    margin-bottom: 20px; /* px */
+    margin-top: 2px; /* px */
+    color: #8A2846;
+    font-size: 3em;
+    font-family: 'BleekerCyrillic';
+    font-weight: lighter;
+    text-align: center;
+    /*text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.6);*/
 }
 
 .greeting h3,
-.timeline h3,
 .location h3,
-.dress-code h3,
 .details h3,
 .rsvp h3 {
-    margin-bottom: 26px;
-    color: #fcecd2; /* кремовый */
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.6);
+    margin-bottom: 26px; /* px */
+    color: #a53860;
+    /*text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.6);*/
+    font-family: 'BleekerCyrillic';
+    font-weight: lighter;
+    font-size: 1.5em;
+    text-align: center;
+}
+.timeline h3 {
+    margin-bottom: 26px; /* px */
+    color: #a53860;
+    /*text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.6);*/
+    font-family: 'BleekerCyrillic';
+    font-weight: lighter;
+    font-size: 1.5em;
+    text-decoration-line: underline;
+    text-decoration-style: solid;
+    text-decoration-thickness: 4px; /* px, иначе ломается */
+    text-decoration-color: rgba(139, 95, 191, 0.5) ;
+    text-align: center;
 }
 
 .greeting p,
 .details p,
-.details a,
-.dress-code p {
-    font-size: 1.1em;
-    max-width: 600px;
+.details a {
+    font-size: 1.4em;
+    max-width: 600px; /* px */
     margin: 0 auto;
     line-height: 1.6;
-    color: #fdfaf5;
+    font-family: 'BleekerCyrillic';
+    font-weight: lighter;
+    color: #602437;
+    text-align: center;
 }
+
+.dress-code-description {
+    font-size: 1.3em;
+    /*max-width: 400px; !* px *!*/
+    margin: 0 auto;
+    line-height: 1.3;
+    font-family: 'BleekerCyrillic';
+    font-weight: lighter;
+    color: #602437;
+    text-align: center;
+    width: 100%;
+
+}
+.dress-code-style-header {
+    margin-bottom: 26px;
+    color: #a53860;
+    font-family: 'BleekerCyrillic';
+    font-weight: lighter;
+    font-size: 1.5em;
+    text-align: left;
+    width: fit-content;
+    margin-right: 10px;
+    margin-left: 170px;
+    position: relative;
+    padding-right: 20px;
+    min-height: 30px; /* 👈 это критично */
+}
+.dress-code-style-header::after {
+    content: '';
+    position: absolute;
+    left: -20px;             /* линия будет начинаться с начала */
+    bottom: -8px;       /* отступ вниз от заголовка */
+    width: 400px;         /* или меньше, если хочешь короче */
+    height: 10px;
+    border-bottom: 6px dashed rgba(139, 95, 191, 0.7);
+
+}
+.dress-code-style {
+    font-size: 1.4em;
+    width: 100%; /* px */
+    margin-left: 50px;
+    margin-right: 110px;
+    line-height: 1.6;
+    font-family: 'BleekerCyrillic';
+    font-weight: lighter;
+    color: #602437;
+    text-align: left;
+    border-right: 6px dashed rgba(139, 95, 191, 0.7);
+    padding-right: 10px;
+}
+
+.dress-code-palette-header {
+    margin-bottom: 26px;
+    color: #a53860;
+    font-family: 'BleekerCyrillic';
+    font-weight: lighter;
+    font-size: 1.5em;
+    text-align: right;
+    width: fit-content;
+    margin-left: 350px;
+    margin-right: 10px;
+    position: relative;
+    padding-right: 20px;
+    min-height: 30px; /* 👈 это критично */
+}
+.dress-code-palette-header::after {
+    content: '';
+    position: absolute;
+    left: -20px;             /* линия будет начинаться с начала */
+    bottom: -8px;       /* отступ вниз от заголовка */
+    width: 400px;         /* или меньше, если хочешь короче */
+    height: 10px;
+    border-bottom: 6px dashed rgba(139, 95, 191, 0.7);
+
+}
+.dress-code-palette {
+    font-size: 1.4em;
+    width: 100%; /* px */
+    margin-left: 300px;
+    margin-right: 50px;
+    line-height: 1.6;
+    font-family: 'BleekerCyrillic';
+    font-weight: lighter;
+    color: #602437;
+    text-align: left;
+    border-left: 6px dashed rgba(139, 95, 191, 0.7);
+    padding-left: 10px;
+}
+
 
 .details a {
     margin-left: 5px;
     margin-right: 5px;
+    text-align: center;
 }
 
 .timeline-list {
@@ -146,6 +270,8 @@ body::after {
     padding: 0;
     max-width: 500px;
     margin: 0 auto;
+    color: #602437;
+    text-align: center;
 }
 
 .timeline-item {
@@ -156,6 +282,7 @@ body::after {
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     max-width: 500px;
     margin: 0 auto;
+    color: #602437;
 }
 
 .timeline-icon img {
@@ -164,15 +291,30 @@ body::after {
 }
 
 .timeline-time {
-    font-weight: bold;
-    color: #fdfaf5;
-    width: 60px;
-    text-align: right;
+    font-family: 'BleekerCyrillic';
+    font-size: 1.5em;
+    color: #602437;
+    white-space: nowrap;
+    text-align: center;
 }
 
 .timeline-title {
-    color: #f0e6d2;
+    display: flex;
+    align-items: center;
+    font-family: 'BleekerCyrillic';
+    font-size: 1.5em;
+    color: #602437;
     flex-grow: 1;
+    position: relative;
+    text-align: center;
+}
+.timeline-title::before {
+    content: '';
+    flex-grow: 1;
+    border-bottom: 3px dotted #94425c;
+    height: 1px;
+    margin: 0 10px;
+    transform: translateY(+6px); /* Чуть поднимаем линию */
 }
 
 .map-container {
@@ -196,6 +338,7 @@ body::after {
     margin: 0 auto;
     gap: 20px;
     text-align: left;
+    font-family: 'BleekerCyrillic';
 }
 
 .rsvp-form label {
@@ -243,6 +386,7 @@ body::after {
 .guest-error h2 {
     color: #f08080;
     font-size: 2em;
+    text-align: center;
 }
 
 .guest-error p {
@@ -250,14 +394,17 @@ body::after {
     margin: 0 auto;
     font-size: 1.1em;
     color: #fcecd2;
+    text-align: center;
 }
 
 .location p {
-    font-size: 1em;
-    color: #fcecd2; /* кремовый цвет для контраста с тёмным фоном */
+    font-size: 1.4em;
     max-width: 600px;
     margin: 0 auto 20px;
     line-height: 1.6;
+    font-family: 'BleekerCyrillic';
+    color: #6f1d1b;
+    text-align: center;
 }
 
 .address-line {
@@ -267,7 +414,7 @@ body::after {
     gap: 6px; /* уменьшен зазор */
     white-space: normal;
     flex-wrap: nowrap; /* чтобы кнопка была на той же строке */
-    text-align: center;
+    text-align: center; /*СЛОМАЛОСЬ*/
 }
 
 .copy-button {
