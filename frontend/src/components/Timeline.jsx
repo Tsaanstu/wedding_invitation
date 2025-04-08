@@ -30,11 +30,6 @@ const timelineDataSecondDay = [
         title: 'Праздничный банкет',
         icon: '/icons/champagne.svg',
     },
-    // {
-    //     time: '18:00',
-    //     title: 'Подача торта',
-    //     icon: '/icons/cake.svg',
-    // },
     {
         time: '22:00',
         title: 'Завершение вечера',

@@ -4,7 +4,7 @@ import { FiCopy } from 'react-icons/fi';
 import '../styles.css';
 
 function Location() {
-    const [copied, setCopied] = useState(false);
+    const [, setCopied] = useState(false);
     const address = 'Центральная улица, 21А, деревня Высоково, городской округ Мытищи, Московская область';
 
     const handleCopy = () => {

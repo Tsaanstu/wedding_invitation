@@ -89,7 +89,7 @@ body::after {
 
 .section {
     padding: 60px 20px;
-    background-color: rgba(255, 255, 255, 0.6);
+    background-color: rgba(255, 255, 255, 0.7);
     border-radius: 12px;
     margin: 30px auto;
     max-width: 900px;
@@ -98,8 +98,8 @@ body::after {
 }
 
 .header .names {
-    font-family: 'PassionsConflict';
-    font-size: 9rem;
+    font-family: 'PassionsConflict', cursive;
+    font-size: 7rem;
     color: #b9375e;
     font-weight: normal;
     text-decoration-line: underline;
@@ -111,26 +111,20 @@ body::after {
     text-align: center;
 }
 
-/*.header .date {*/
-/*    font-size: 1.2em;*/
-/*    color: #e6e2dd;*/
-/*    margin-top: 10px;*/
-/*}*/
-
 .greeting h2,
 .timeline h2,
 .location h2,
 .dress-code h2,
 .details h2,
 .rsvp h2 {
-    margin-bottom: 20px; /* px */
-    margin-top: 2px; /* px */
+    margin-top: 2px;
+    margin-bottom: 20px;
     color: #8A2846;
     font-size: 3em;
-    font-family: 'BleekerCyrillic';
+    font-family: 'BleekerCyrillic', serif;
     font-weight: lighter;
     text-align: center;
-    /*text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.6);*/
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.6);
 }
 
 .greeting h3,
@@ -140,7 +134,7 @@ body::after {
     margin-bottom: 26px; /* px */
     color: #a53860;
     /*text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.6);*/
-    font-family: 'BleekerCyrillic';
+    font-family: 'BleekerCyrillic', serif;
     font-weight: lighter;
     font-size: 1.5em;
     text-align: center;
@@ -150,7 +144,7 @@ body::after {
     margin-bottom: 26px; /* px */
     color: #a53860;
     /*text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.6);*/
-    font-family: 'BleekerCyrillic';
+    font-family: 'BleekerCyrillic', serif;
     font-weight: lighter;
     font-size: 1.5em;
     text-decoration-line: underline;
@@ -167,7 +161,7 @@ body::after {
     max-width: 600px; /* px */
     margin: 0 auto;
     line-height: 1.6;
-    font-family: 'BleekerCyrillic';
+    font-family: 'BleekerCyrillic', serif;
     font-weight: lighter;
     color: #602437;
     text-align: center;
@@ -185,7 +179,7 @@ body::after {
 .dress-code-description-text {
     font-size: 1.3em;
     line-height: 1.3;
-    font-family: 'BleekerCyrillic';
+    font-family: 'BleekerCyrillic', serif;
     font-weight: lighter;
     color: #602437;
     text-align: center;
@@ -223,7 +217,7 @@ body::after {
     position: relative;
     font-size: 1.3em;
     line-height: 1.3;
-    font-family: 'BleekerCyrillic';
+    font-family: 'BleekerCyrillic', serif;
     font-weight: lighter;
     color: #602437;
     text-align: left;
@@ -271,7 +265,7 @@ body::after {
     position: relative;
     font-size: 1.3em;
     line-height: 1.3;
-    font-family: 'BleekerCyrillic';
+    font-family: 'BleekerCyrillic', serif;
     font-weight: lighter;
     color: #602437;
     text-align: right;
@@ -311,6 +305,7 @@ body::after {
     max-width: 500px;
     margin: 0 auto;
     color: #602437;
+    border-bottom: 3px dotted #94425c;
 }
 
 .timeline-icon img {
@@ -319,8 +314,8 @@ body::after {
 }
 
 .timeline-time {
-    font-family: 'BleekerCyrillic';
-    font-size: 1.5em;
+    font-family: 'BleekerCyrillic', serif;
+    font-size: 1.4em;
     color: #602437;
     white-space: nowrap;
     text-align: center;
@@ -328,22 +323,12 @@ body::after {
 
 .timeline-title {
     display: flex;
-    align-items: center;
-    font-family: 'BleekerCyrillic';
-    font-size: 1.5em;
+    font-family: 'BleekerCyrillic', serif;
+    font-size: 1.4em;
     color: #602437;
     flex-grow: 1;
+    margin: 0 0 0 30%;
     position: relative;
-    text-align: center;
-}
-
-.timeline-title::before {
-    content: '';
-    flex-grow: 1;
-    border-bottom: 3px dotted #94425c;
-    height: 1px;
-    margin: 0 10px;
-    transform: translateY(+6px); /* Чуть поднимаем линию */
 }
 
 .map-container {
@@ -367,7 +352,7 @@ body::after {
     margin: 0 auto;
     gap: 20px;
     text-align: left;
-    font-family: 'BleekerCyrillic';
+    font-family: 'BleekerCyrillic', serif;
 }
 
 .rsvp-form label {
@@ -430,10 +415,8 @@ body::after {
     font-size: 1.4em;
     max-width: 600px;
     margin: 0 auto 20px;
-    line-height: 1.6;
-    font-family: 'BleekerCyrillic';
+    font-family: 'BleekerCyrillic', serif;
     color: #6f1d1b;
-    text-align: center;
 }
 
 .address-line {
@@ -450,7 +433,7 @@ body::after {
     background: none;
     border: none;
     cursor: pointer;
-    color: #fcecd2;
+    color: #6f1d1b;
     font-size: 1.2em;
     display: flex;
     align-items: center;
