@@ -75,9 +75,13 @@ function RSVPForm({guest}) {
     return (
         <section className="section rsvp" data-aos="fade-up">
             <h2>Анкета гостя</h2>
+            <p>
+                📩 <strong>Пожалуйста, подтвердите своё присутствие заранее.</strong><br/>
+                Нам важно получить эту информацию, чтобы обеспечить комфортные условия, особенно для наших иногородних
+                гостей.
+            </p>
             <form onSubmit={handleSubmit} className="rsvp-form">
                 <label>
-                    Подтвердите ваше присутствие:
                     <select value={attendance} onChange={e => setAttendance(e.target.value)} required>
                         <option value="">Выберите вариант</option>
                         <option value="yes">Приду</option>
