@@ -56,9 +56,9 @@ function GuestPage({ guest }) {
       <Header />
       <Greeting guest={guest} />
       <Timeline />
+      <Details />
       <Location />
       <DressCode />
-      <Details />
       {guest.girl_party ? <GirlParty /> : null}
       {guest.boy_party ? <BoyParty /> : null}
       <RSVPForm guest={guest} />

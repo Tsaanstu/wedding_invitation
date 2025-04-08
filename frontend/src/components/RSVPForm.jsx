@@ -75,9 +75,13 @@ function RSVPForm({guest}) {
     return (
         <section className="section rsvp" data-aos="fade-up">
             <h2>Анкета гостя</h2>
+            <p>
+                📩 <strong>Пожалуйста, подтвердите своё присутствие заранее.</strong><br/>
+                Нам важно получить эту информацию, чтобы обеспечить комфортные условия, особенно для наших иногородних
+                гостей.
+            </p>
             <form onSubmit={handleSubmit} className="rsvp-form">
                 <label>
-                    Подтвердите ваше присутствие:
                     <select value={attendance} onChange={e => setAttendance(e.target.value)} required>
                         <option value="">Выберите вариант</option>
                         <option value="yes">Приду</option>
@@ -87,7 +91,7 @@ function RSVPForm({guest}) {
 
                 {attendance === 'yes' && (
                     <>
-                        <p className="rsvp-form-subtitle">Предпочитаемый алкоголь:</p>
+                        <p>Предпочитаемый алкоголь:</p>
                         <div className="checkbox-grid">
                             {alcoholOptions.map(option => (
                                 <div key={option} className="checkbox-item">
@@ -104,7 +108,7 @@ function RSVPForm({guest}) {
                         </div>
 
                         <label>
-                            Есть ли у вас аллергии?
+                            <span className="allergy-label">Есть ли у вас аллергии?</span>
                             <input
                                 type="text"
                                 value={allergy}
