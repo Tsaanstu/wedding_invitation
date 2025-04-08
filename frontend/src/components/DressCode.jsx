@@ -4,34 +4,41 @@ import '../styles.css';
 function DressCode() {
     return (
         <section className="section dress-code" data-aos="fade-up">
-            <h2>Дресс-код</h2>
-            <div className="dress-code-description" style={{width: '600px'}}>
-                Для нас очень важна обстановка, в которой пройдет наше торжество,
-                поэтому мы выбрали красивое место и наняли команду професcионалов для его оформления.
-                Чтобы поддержать гармонию нашего мероприятия, мы настоятельно просим наших гостей соблюдать строгий
-                стиль и дресс-код.
+            <div className="dress-code-description-block">
+                <h2 className="dress-code-description-header">
+                    Дресс-код
+                </h2>
+                <div className="dress-code-description-text">
+                    Для нас очень важна обстановка, в которой пройдет наше торжество,
+                    поэтому мы выбрали красивое место и наняли команду професcионалов для его оформления.
+                    Чтобы поддержать гармонию нашего мероприятия, мы настоятельно просим наших гостей соблюдать строгий
+                    стиль и дресс-код.
+                </div>
             </div>
 
-            <header className="dress-code-style-header">
-                <h3>Стиль</h3>
-            </header>
+            <div className="dress-code-style-block">
+                <div className="dress-code-style-header">
+                    <h2 className="dress-code-style-header-text">Стиль</h2>
+                </div>
 
-            <div className="dress-code-style" style={{width: '500px'}}>
-                Пожалуйста, при выборе нарядов придерживайтесь классического стиля.
-                Предпочтите спортивному костюму рубашку и джинсы, воздержитесь от слишком коротких нарядов и глубоких
-                декольте.
-                Возможно, в день мероприятия будет жарко, поэтому допускаются шорты классического кроя.
+                <div className="dress-code-style-text">
+                    Пожалуйста, при выборе нарядов придерживайтесь классического стиля.
+                    Предпочтите спортивному костюму рубашку и джинсы, воздержитесь от слишком коротких нарядов и
+                    глубоких
+                    декольте.
+                    Возможно, в день мероприятия будет жарко, поэтому допускаются шорты классического кроя.
+                </div>
             </div>
 
-            <header className="dress-code-palette-header">
-                <h3>Цветовая гамма</h3>
+            <div className="dress-code-palette-block">
+                <div className="dress-code-palette-header">
+                    <h2 className="dress-code-palette-header-text">Цветовая гамма</h2>
+                </div>
 
-            </header>
-
-            <div className="dress-code-palette" style={{width: '500px'}}>
-                Ниже представлены цвета, которые отлично подойдут к нашему мероприятию.
-                <p>P.S. Пожалуйста, не допускайте белых и черных элементов одежды в вашем наряде (даже мужчины).</p>
-
+                <div className="dress-code-palette-text">
+                    Ниже представлены цвета, которые отлично подойдут к нашему мероприятию.
+                    <p>P.S. Пожалуйста, не допускайте белых и черных элементов одежды в вашем наряде (даже мужчины).</p>
+                </div>
             </div>
 
             <div className="color-palette">
