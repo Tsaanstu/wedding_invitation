@@ -91,7 +91,7 @@ function RSVPForm({guest}) {
 
                 {attendance === 'yes' && (
                     <>
-                        <p className="rsvp-form-subtitle">Предпочитаемый алкоголь:</p>
+                        <p>Предпочитаемый алкоголь:</p>
                         <div className="checkbox-grid">
                             {alcoholOptions.map(option => (
                                 <div key={option} className="checkbox-item">
@@ -108,7 +108,7 @@ function RSVPForm({guest}) {
                         </div>
 
                         <label>
-                            Есть ли у вас аллергии?
+                            <span className="allergy-label">Есть ли у вас аллергии?</span>
                             <input
                                 type="text"
                                 value={allergy}

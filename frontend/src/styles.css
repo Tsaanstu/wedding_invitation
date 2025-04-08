@@ -390,7 +390,7 @@ body::after {
     align-self: center;
     padding: 10px 20px;
     background-color: #fcecd2;
-    color: #333;
+    color: #6f1d1b;
     border: none;
     border-radius: 5px;
     cursor: pointer;
@@ -479,9 +479,17 @@ body::after {
     display: flex;
     align-items: center;
     gap: 10px;
-    font-size: 1em;
-    color: #fdfaf5;
     position: relative;
+}
+
+.checkbox-item label{
+    font-size: 1em;
+    color: #6f1d1b;
+}
+
+.allergy-label{
+    font-size: 1em;
+    color: #6f1d1b;
 }
 
 .checkbox-item input[type="checkbox"] {
@@ -499,7 +507,7 @@ body::after {
 .checkbox-item input[type="checkbox"]::before {
     content: "♡";
     font-size: 22px;
-    color: #fcecd2;
+    color: #6f1d1b;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -514,12 +522,5 @@ body::after {
     content: "❤️";
     color: #f66d9b;
     transform: scale(1.1);
-}
-
-
-.rsvp-form-subtitle {
-    color: #fdfaf5;
-    font-size: 1em;
-    margin-bottom: 0;
 }
 
