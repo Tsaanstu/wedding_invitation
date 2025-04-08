@@ -10,7 +10,8 @@ import Details from "./components/Details";
 import RSVPForm from "./components/RSVPForm";
 import GirlParty from "./components/GirlParty";
 import BoyParty from "./components/BoyParty";
-import BackgroundManager from "./components/BackgroundManager"; // Убедись, что компонент работает как фон
+import BackgroundManager from "./components/BackgroundManager";
+import Contacts from "./components/Contacts";
 
 function App() {
   return (
@@ -62,6 +63,7 @@ function GuestPage({ guest }) {
       {guest.girl_party ? <GirlParty /> : null}
       {guest.boy_party ? <BoyParty /> : null}
       <RSVPForm guest={guest} />
+      <Contacts/>
     </>
   );
 }
