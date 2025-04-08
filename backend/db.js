@@ -56,7 +56,7 @@ db.serialize(() => {
         },
         {
             slug: 'a7df2f8d-5bec-4340-b022-49fd82d72b7e',
-            name: 'Александр',
+            name: 'Александр', // Дублецевич
             partner_name: null,
             gender: 'm',
             girl_party: false,
@@ -64,7 +64,7 @@ db.serialize(() => {
         },
         {
             slug: 'dfd75fc0-7985-4102-b77e-fc5f0e4837a6',
-            name: 'Александр',
+            name: 'Александр', // Боровиков
             partner_name: null,
             gender: 'm',
             girl_party: false,
@@ -161,6 +161,14 @@ db.serialize(() => {
         {
             slug: 'b81fca63-4697-41c1-8c0d-6fef785fb490',
             name: 'Разиля Тимергалиевна',
+            partner_name: null,
+            gender: 'f',
+            girl_party: false,
+            boy_party: false
+        },
+        {
+            slug: '405da082-8725-4993-ac6b-6b522c63077e',
+            name: 'Расима Тимергалиевна',
             partner_name: null,
             gender: 'f',
             girl_party: false,
