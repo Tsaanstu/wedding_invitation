@@ -9,6 +9,8 @@ services:
       - "5050:5050"
     environment:
       - NODE_ENV=production
+    volumes:
+      - db-volume:/app/storage
 
   frontend:
     container_name: frontend-1
@@ -19,3 +21,6 @@ services:
       - '8090:8090'
     environment:
       - NODE_ENV=production
+
+volumes:
+  db-volume:
