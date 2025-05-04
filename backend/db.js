@@ -173,6 +173,22 @@ db.serialize(() => {
             gender: 'f',
             girl_party: false,
             boy_party: false
+        },
+        {
+            slug: '2c628a2c-8f98-458a-9cc1-83f441e5dd3c',
+            name: 'Никита', // Казарян
+            partner_name: null,
+            gender: 'm',
+            girl_party: false,
+            boy_party: false
+        },
+        {
+            slug: '8458f677-294b-4f04-b417-8f1479fd22ab',
+            name: 'Организатор',
+            partner_name: null,
+            gender: 'm',
+            girl_party: false,
+            boy_party: false
         }
     ];
 
