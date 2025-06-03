@@ -199,14 +199,6 @@ db.serialize(() => {
             boy_party: false
         },
         {
-            slug: '8402cea4-9187-494c-9d29-5639c49c24bf',
-            name: 'Анна Борисовна', // тетя Аня
-            partner_name: null,
-            gender: 'f',
-            girl_party: false,
-            boy_party: false
-        },
-        {
             slug: 'fe8d85ca-2b3d-4f56-bfe1-87dfbb644f4c',
             name: 'Ильмира',
             partner_name: null,
