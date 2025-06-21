@@ -35,7 +35,7 @@ db.serialize(() => {
             name: 'Алексей',
             partner_name: 'Лада',
             gender: 'm',
-            girl_party: false,
+            girl_party: true,
             boy_party: false
         },
         {
@@ -43,7 +43,7 @@ db.serialize(() => {
             name: 'Анастасия',
             partner_name: 'Мстислав',
             gender: 'f',
-            girl_party: false,
+            girl_party: true,
             boy_party: false
         },
         {
@@ -51,7 +51,7 @@ db.serialize(() => {
             name: 'Диана',
             partner_name: 'Виктория',
             gender: 'f',
-            girl_party: false,
+            girl_party: true,
             boy_party: false
         },
         {
@@ -75,7 +75,7 @@ db.serialize(() => {
             name: 'Ольга',
             partner_name: 'Михаил',
             gender: 'f',
-            girl_party: false,
+            girl_party: true,
             boy_party: false
         },
         {
@@ -83,7 +83,7 @@ db.serialize(() => {
             name: 'Татьяна',
             partner_name: 'Антон',
             gender: 'f',
-            girl_party: false,
+            girl_party: true,
             boy_party: false
         },
         {
@@ -91,7 +91,7 @@ db.serialize(() => {
             name: 'Азалия',
             partner_name: null,
             gender: 'f',
-            girl_party: false,
+            girl_party: true,
             boy_party: false
         },
         {
@@ -99,7 +99,7 @@ db.serialize(() => {
             name: 'Анастасия',
             partner_name: null,
             gender: 'f',
-            girl_party: false,
+            girl_party: true,
             boy_party: false
         },
         {
@@ -107,7 +107,7 @@ db.serialize(() => {
             name: 'Софья',
             partner_name: 'Искандер',
             gender: 'f',
-            girl_party: false,
+            girl_party: true,
             boy_party: false
         },
         {
@@ -203,7 +203,7 @@ db.serialize(() => {
             name: 'Ильмира',
             partner_name: null,
             gender: 'f',
-            girl_party: false,
+            girl_party: true,
             boy_party: false
         }
     ];
