@@ -156,6 +156,7 @@ body::after {
 
 .greeting p,
 .details p,
+.details ul,
 .rsvp p {
     font-size: 1.25em;
     max-width: 600px; /* px */
@@ -165,6 +166,10 @@ body::after {
     font-weight: lighter;
     color: #602437;
     text-align: center;
+}
+
+.details li {
+    text-align: left;
 }
 
 .dress-code-description-block {
