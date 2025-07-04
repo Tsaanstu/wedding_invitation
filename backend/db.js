@@ -36,7 +36,7 @@ db.serialize(() => {
             partner_name: 'Лада',
             gender: 'm',
             girl_party: true,
-            boy_party: false
+            boy_party: true
         },
         {
             slug: 'b0b95534-20f0-4001-be83-4768928038a3',
@@ -60,7 +60,7 @@ db.serialize(() => {
             partner_name: null,
             gender: 'm',
             girl_party: false,
-            boy_party: false
+            boy_party: true
         },
         {
             slug: 'dfd75fc0-7985-4102-b77e-fc5f0e4837a6',
@@ -68,7 +68,7 @@ db.serialize(() => {
             partner_name: null,
             gender: 'm',
             girl_party: false,
-            boy_party: false
+            boy_party: true
         },
         {
             slug: '479b49d2-5a1a-48dc-b73a-80640625b7fa',
@@ -76,7 +76,7 @@ db.serialize(() => {
             partner_name: 'Михаил',
             gender: 'f',
             girl_party: true,
-            boy_party: false
+            boy_party: true
         },
         {
             slug: '29c90d79-2461-4919-974d-ec6b4cbfc923',
@@ -204,6 +204,22 @@ db.serialize(() => {
             partner_name: null,
             gender: 'f',
             girl_party: true,
+            boy_party: false
+        },
+        {
+            slug: '40335a81-c5ac-413e-aab6-46706137aa4d',
+            name: 'Аня',
+            partner_name: 'Саша',
+            gender: 'f',
+            girl_party: false,
+            boy_party: false
+        },
+        {
+            slug: '51202384-4a8e-4598-bf43-50afa575f45a',
+            name: 'Игорь',
+            partner_name: 'Аня',
+            gender: 'm',
+            girl_party: false,
             boy_party: false
         }
     ];
